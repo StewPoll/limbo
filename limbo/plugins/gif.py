@@ -38,6 +38,24 @@ def on_message(msg, server):
         return
 
     searchterm = match[0]
-    return gif(searchterm.encode("utf8"))
+    url = gif(searchterm.encode("utf8"))
+    if url:
+        attachment = {
+            "attachments": [
+                {
+                    "title": searchterm,
+                    "title_link": url,
+                    "image_url": url
+                }
+            ]
+        }
+
+        server.slack.post_message(
+            msg['channel'],
+            'Did someone ask for a GIF?',
+            as_user=server.slack.username,
+            **attachment
+        )
+    return
 
 on_bot_message = on_message
