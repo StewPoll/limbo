@@ -18,7 +18,7 @@
 * --test, -t: Enter command line mode to enter a limbo repl.
 * --hook: Specify the hook to test. (Defaults to "message").
 * -c: Run a single command.
-* --database, -d: Where to store the limbo tinydb database. Defaults to log.json.
+* --database, -d: Where to store the limbo sqlite3 database. Defaults to limbo.sqlite3.
 * --pluginpath, -pp: The path where limbo should look to find its plugins (defaults to /plugins).
 
 ## Environment Variables
@@ -27,13 +27,15 @@
 * LIMBO_LOGLEVEL: The logging level. Defaults to INFO.
 * LIMBO_LOGFILE: File to log info to. Defaults to none.
 * LIMBO_LOGFORMAT: Format for log messages. Defaults to `%(asctime)s:%(levelname)s:%(name)s:%(message)s`.
-* LIMBO_PLUGINS: Comma-delimited string of plugins to load. Defaults to loading all plugins in the plugins directory (which defaults to "/plugins")
+* LIMBO_PLUGINS: Comma-delimited string of plugins to load. Defaults to loading all plugins in the plugins directory (which defaults to "limbo/plugins")
 
 ## Commands
 
 It's super easy to add your own commands! Just create a python file in the plugins directory with an `on_message` function that returns a string.
 
 You can use the `!help` command to print out all available commands and a brief help message about them. `!help <plugin>` will return just the help for a particular plugin.
+
+By default, plugins won't react to messages from other bots (just messages from humans). Define an `on_bot_message` function to handle bot messages too. See the example plugins for an easy way to define these functions.
 
 These are the current default plugins:
 
@@ -47,7 +49,6 @@ These are the current default plugins:
 * [map](https://github.com/llimllib/limbo/wiki/Map-Plugin)
 * [stock](https://github.com/llimllib/limbo/wiki/Stock-Plugin)
 * [stockphoto](https://github.com/llimllib/limbo/wiki/Stock-Photo-Plugin)
-* [urban](https://github.com/llimllib/limbo/wiki/Urban)
 * [weather](https://github.com/llimllib/limbo/wiki/Weather-Plugin)
 * [wiki](https://github.com/llimllib/limbo/wiki/Wiki-Plugin)
 * [youtube](https://github.com/llimllib/limbo/wiki/Youtube-Plugin)
@@ -80,3 +81,7 @@ These are the current default plugins:
 * [@PeterGrace](https://github.com/PeterGrace)
 * [@SkiftCreative](https://github.com/SkiftCreative)
 * [@diceone](https://github.com/diceone)
+* [@rnagle](https://github.com/rnagle)
+* [@topher200](https://github.com/topher200)
+* [@StewPoll](https://github.com/StewPoll)
+* [@eSoares](https://github.com/eSoares)

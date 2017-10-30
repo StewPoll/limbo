@@ -15,3 +15,5 @@ slask.egg-info/
 .tox
 .start.sh
 .vagrant
+.python-version
+.cache
